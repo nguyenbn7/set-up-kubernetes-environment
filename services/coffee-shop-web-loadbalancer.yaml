@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: coffee-shop-website-load-balancer
+  labels:
+    app: coffee-shop-website
+    tier: static-webpage
+spec:
+  type: LoadBalancer
+  externalIPs:
+    - 172.30.50.35
+  selector:
+    app: coffee-shop-website
+    tier: static-webpage
+  ports:
+  - port: 8080
+    targetPort: 80
+  
